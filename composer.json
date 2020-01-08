@@ -1,0 +1,14 @@
+{
+  "name": "elbgoods/ci-test-tools",
+  "license": "MIT",
+  "require": {
+    "php": "^7.2",
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "phpunit/phpunit": "^8.0",
+    "nunomaduro/collision": "^3.0"
+  },
+  "bin": [
+    "bin/php-cs-test",
+    "bin/php-cs-fix"
+  ]
+}

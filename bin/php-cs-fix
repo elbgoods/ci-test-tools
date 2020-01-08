@@ -1,0 +1,3 @@
+#!/usr/bin/env bash -e
+DIR="$(dirname "$(readlink -f "$0")")"
+vendor/bin/php-cs-fixer fix --using-cache=no --config=${DIR}/../configs/.php_cs.dist "${@}"
