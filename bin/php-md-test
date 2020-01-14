@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR="$(dirname "$(readlink -f "$0")")"
+vendor/bin/phpmd ./app text ${DIR}/../configs/./phpmd.xml
