@@ -58,3 +58,18 @@ You have to create a `tlint.json` file on your project root level with the follo
     "preset": "\\Elbgoods\\CiTestTools\\TlintPreset"
 }
 ```
+
+### PHPMD
+
+* **tool:** https://github.com/phpmd/phpmd
+* **config:** [configs/phpmd.xml](configs/phpmd.xml)
+
+#### Usage
+
+```bash
+vendor/bin/php-md-test
+```
+
+#### Configuration
+
+If you think that a rule should be adjusted/ignored open a PR in [this repo](https://github.com/elbgoods/ci-test-tools) to discuss it.
