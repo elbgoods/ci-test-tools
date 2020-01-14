@@ -11,7 +11,8 @@
   "bin": [
     "bin/php-cs-test",
     "bin/php-cs-fix",
-    "bin/php-tlint-test"
+    "bin/php-tlint-test",
+    "bin/php-md-test"
   ],
   "autoload": {
     "psr-4": {
