@@ -37,3 +37,24 @@ If you want to adjust the default configuration you can use your `composer.json[
   }
 }
 ```
+
+### TLint
+
+* **tool:** https://github.com/tightenco/tlint
+* **config:** [src/TlintPreset.php](src/TlintPreset.php)
+
+#### Usage
+
+```bash
+vendor/bin/php-tlint-test
+```
+
+#### Configuration
+
+You have to create a `tlint.json` file on your project root level with the following, and only, content.
+
+```json
+{
+    "preset": "\\Elbgoods\\CiTestTools\\TlintPreset"
+}
+```
