@@ -8,6 +8,7 @@ $root = getcwd();
 $finder = Finder::create()
     ->exclude('vendor')
     ->exclude('bootstrap/cache')
+    ->exclude('storage')
     ->in($root);
 
 $composerJson = $root . DIRECTORY_SEPARATOR . 'composer.json';
