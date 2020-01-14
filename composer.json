@@ -3,12 +3,18 @@
   "license": "MIT",
   "require": {
     "php": "^7.2",
-    "friendsofphp/php-cs-fixer": "^2.16",
-    "phpunit/phpunit": "^8.0",
-    "nunomaduro/collision": "^3.0"
+    "friendsofphp/php-cs-fixer": "@stable",
+    "phpunit/phpunit": "@stable",
+    "nunomaduro/collision": "@stable",
+    "tightenco/tlint": "@stable"
   },
   "bin": [
     "bin/php-cs-test",
     "bin/php-cs-fix"
-  ]
+  ],
+  "autoload": {
+    "psr-4": {
+      "Elbgoods\\CiTestTools\\": "src/"
+    }
+  }
 }
