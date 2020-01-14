@@ -4,8 +4,6 @@
   "require": {
     "php": "^7.2",
     "friendsofphp/php-cs-fixer": "@stable",
-    "phpunit/phpunit": "@stable",
-    "nunomaduro/collision": "@stable",
     "tightenco/tlint": "@stable"
   },
   "bin": [
