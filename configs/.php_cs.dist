@@ -6,9 +6,15 @@ use PhpCsFixer\Finder;
 $root = getcwd();
 
 $finder = Finder::create()
-    ->exclude('vendor')
-    ->exclude('bootstrap/cache')
-    ->exclude('storage')
+    ->notPath('vendor')
+    ->notPath('bootstrap')
+    ->notPath('storage')
+    ->notName('*.blade.php')
+    ->notName('index.php')
+    ->notName('server.php')
+    ->ignoreDotFiles(true)
+    ->ignoreVCS(true)
+    ->name('*.php')
     ->in($root);
 
 $composerJson = $root . DIRECTORY_SEPARATOR . 'composer.json';
@@ -32,66 +38,8 @@ if (file_exists($composerJson)) {
 }
 
 return Config::create()
-    ->setRules([
+    ->setRules(array_merge([
         '@PSR2' => true,
-        '@DoctrineAnnotation' => true,
-        'full_opening_tag' => true,
-        'header_comment' => [
-            'header' => '',
-        ],
-        'single_blank_line_before_namespace' => true,
-        'blank_line_after_namespace' => true,
-        'no_blank_lines_after_class_opening' => true,
-        'braces' => true,
-        'elseif' => true,
-        'no_empty_comment' => true,
-        'no_empty_phpdoc' => true,
-        'no_empty_statement' => true,
-        'no_useless_else' => true,
-        'no_whitespace_in_blank_line' => true,
-        'no_useless_return' => true,
-        'no_whitespace_before_comma_in_array' => true,
-        'no_extra_blank_lines' => ['extra'],
-        'array_syntax' => ['syntax' => 'short'],
-        'ordered_class_elements' => [
-            'order' => [
-                'use_trait',
-                'constant_public',
-                'constant_protected',
-                'constant_private',
-                'property_public',
-                'property_protected',
-                'property_private',
-                'construct',
-                'method_public_static',
-                'method_public',
-                'method_protected_static',
-                'method_protected',
-                'method_private_static',
-                'method_private',
-                'destruct',
-                'magic',
-            ],
-            'sortAlgorithm' => 'alpha',
-        ],
-        'single_import_per_statement' => true,
-        'single_line_after_imports' => true,
-        'switch_case_semicolon_to_colon' => true,
-        'visibility_required' => true,
-        'no_break_comment' => true,
-        'no_closing_tag' => true,
-        'no_spaces_after_function_name' => true,
-        'no_spaces_inside_parenthesis' => true,
-        'no_trailing_whitespace' => true,
-        'no_trailing_whitespace_in_comment' => true,
-        'indentation_type' => true,
-        'line_ending' => true,
-        'lowercase_constants' => true,
-        'lowercase_keywords' => true,
-        'encoding' => true,
-        'no_unused_imports' => true,
-        'single_trait_insert_per_statement' => false,
-        'trailing_comma_in_multiline_array' => true,
-        'no_trailing_comma_in_singleline_array' => true,
-    ])
+    ], require '.php_cs.laravel'))
+    ->setRiskyAllowed(true)
     ->setFinder($finder);
