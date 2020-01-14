@@ -5,7 +5,7 @@
     "php": "^7.2",
     "friendsofphp/php-cs-fixer": "@stable",
     "tightenco/tlint": "@stable",
-    "pdepend/pdepend": "dev-feature/php-74-features as 2.x-dev",
+    "pdepend/pdepend": "@stable",
     "phpmd/phpmd": "@stable"
   },
   "bin": [
