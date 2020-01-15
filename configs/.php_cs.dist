@@ -40,6 +40,7 @@ if (file_exists($composerJson)) {
 return Config::create()
     ->setRules(array_merge([
         '@PSR2' => true,
+        'no_unused_imports' => true,
     ], require '.php_cs.laravel'))
     ->setRiskyAllowed(true)
     ->setFinder($finder);
