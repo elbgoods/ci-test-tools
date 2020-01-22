@@ -11,6 +11,11 @@ composer require --dev elbgoods/ci-test-tools
 yarn add --dev elbgoods/ci-test-tools
 ```
 
+If you experience a Memory Limit Error:
+```bash
+COMPOSER_MEMORY_LIMIT=-1 composer require --dev elbgoods/ci-test-tools
+```
+
 ## PHP
 
 ### PHP-CS-FIXER
