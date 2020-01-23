@@ -1,0 +1,32 @@
+<?php
+
+namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
+
+use Illuminate\Foundation\Testing\Assert as PHPUnit;
+
+trait NullableTypeAssertions
+{
+    public static function assertIsNullableString($actual, ?string $message = null): void
+    {
+        PHPUnit::assertTrue(
+            is_null($actual) || is_string($actual),
+            $message ?? "Failed to assert that \"{$actual}\" is type of null|string."
+        );
+    }
+
+    public static function assertIsNullableInt($actual, ?string $message = null): void
+    {
+        PHPUnit::assertTrue(
+            is_null($actual) || is_int($actual),
+            $message ?? "Failed to assert that \"{$actual}\" is type of null|int."
+        );
+    }
+
+    public static function assertIsNullableFloat($actual, ?string $message = null): void
+    {
+        PHPUnit::assertTrue(
+            is_null($actual) || (is_numeric($actual) && (is_int($actual) || is_float($actual))),
+            $message ?? "Failed to assert that \"{$actual}\" is type of null|float."
+        );
+    }
+}
