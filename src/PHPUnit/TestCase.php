@@ -2,6 +2,7 @@
 
 namespace Elbgoods\CiTestTools\PHPUnit;
 
+use Elbgoods\CiTestTools\PHPUnit\Assertions\CommonAssertions;
 use Elbgoods\CiTestTools\PHPUnit\Assertions\EnumAssertions;
 use Elbgoods\CiTestTools\PHPUnit\Assertions\JsonApiResourceAssertions;
 use Elbgoods\CiTestTools\PHPUnit\Assertions\ModelAssertions;
@@ -15,7 +16,8 @@ abstract class TestCase extends BaseTestCase
         EnumAssertions,
         ModelAssertions,
         NullableTypeAssertions,
-        JsonApiResourceAssertions;
+        JsonApiResourceAssertions,
+        CommonAssertions;
 
     protected function setUp(): void
     {
