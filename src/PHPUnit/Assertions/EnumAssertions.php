@@ -27,8 +27,6 @@ trait EnumAssertions
 
     public static function assertIsEnumValue(string $expected, $actual, ?string $message = null): void
     {
-        static::assertIsEnum($expected);
-
         try {
             $enum = forward_static_call([$expected, 'make'], $actual);
 
