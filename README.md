@@ -1,10 +1,19 @@
 # CI Test Tools
 
+[![Packagist](https://img.shields.io/packagist/l/elbgoods/ci-test-tools?style=flat-square)](https://packagist.org/packages/elbgoods/ci-test-tools)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/elbgoods/ci-test-tools?style=flat-square)](https://packagist.org/packages/elbgoods/ci-test-tools)
+[![Packagist Version](https://img.shields.io/packagist/v/elbgoods/ci-test-tools?style=flat-square)](https://packagist.org/packages/elbgoods/ci-test-tools)
+
 ## Installation
 
 ```bash
 composer require --dev elbgoods/ci-test-tools
 yarn add --dev elbgoods/ci-test-tools
+```
+
+If you experience a Memory Limit Error:
+```bash
+COMPOSER_MEMORY_LIMIT=-1 composer require --dev elbgoods/ci-test-tools
 ```
 
 ## PHP
