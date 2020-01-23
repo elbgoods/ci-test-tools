@@ -15,10 +15,16 @@
 
     <rule ref="rulesets/naming.xml">
         <exclude name="ShortVariable" />
+        <exclude name="LongVariable" />
     </rule>
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
-            <property name="exceptions" value="id,ip,from,to" />
+            <property name="exceptions" value="id,ip,from,to,ex" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <properties>
+            <property name="maximum" value="35" />
         </properties>
     </rule>
 
