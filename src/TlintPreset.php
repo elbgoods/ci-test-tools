@@ -11,8 +11,8 @@ class TlintPreset extends LaravelPreset
 {
     public function getLinters() : array
     {
-        return array_filter(parent::getLinters(), function(string $linter) {
-            return !in_array($linter, [
+        return array_filter(parent::getLinters(), function (string $linter) {
+            return ! in_array($linter, [
                 NoInlineVarDocs::class,
                 NoParensEmptyInstantiations::class,
                 RestControllersMethodOrder::class,
