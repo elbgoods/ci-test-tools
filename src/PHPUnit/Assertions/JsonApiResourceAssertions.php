@@ -4,13 +4,19 @@ namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
 use Closure;
 use Illuminate\Foundation\Testing\Assert as PHPUnit;
+use Illuminate\Support\Str;
 use InvalidArgumentException;
 use OutOfBoundsException;
 
 trait JsonApiResourceAssertions
 {
-    /** @var array */
-    protected static $jsonApiResourceAssertions = [];
+    /** @var Closure[] */
+    protected $jsonApiResourceAssertions = [];
+
+    protected function tearDownJsonApiResourceAssertionsTrait(): void
+    {
+        $this->jsonApiResourceAssertions = [];
+    }
 
     public static function assertIsJsonApiResource(array $actual, ?string $type = null, ?int $id = null): void
     {
@@ -28,23 +34,23 @@ trait JsonApiResourceAssertions
         }
     }
 
-    public static function assertIsJsonApiResourceOfType(string $type, $actual, ...$params): void
+    public function assertIsJsonApiResourceOfType(string $type, $actual, ...$params): void
     {
-        static::assertIsJsonApiResource($actual);
-
-        if (! array_key_exists($type, static::$jsonApiResourceAssertions)) {
+        if (! array_key_exists($type, $this->jsonApiResourceAssertions)) {
             throw new OutOfBoundsException(sprintf('There is no assertion registered for type "%s".', $type));
         }
 
-        call_user_func(static::$jsonApiResourceAssertions[$type], $actual, ...$params);
+        static::assertIsJsonApiResource($actual, class_exists($type) ? Str::snake(class_basename($type)) : null);
+
+        call_user_func($this->jsonApiResourceAssertions[$type], $actual, ...$params);
     }
 
-    public static function registerJsonApiResourceAssertion(string $type, Closure $assertion): void
+    public function registerJsonApiResourceAssertion(string $type, Closure $assertion): void
     {
-        if (array_key_exists($type, static::$jsonApiResourceAssertions)) {
+        if (array_key_exists($type, $this->jsonApiResourceAssertions)) {
             throw new InvalidArgumentException(sprintf('There is already an assertion registered for type "%s".', $type));
         }
 
-        static::$jsonApiResourceAssertions[$type] = $assertion;
+        $this->jsonApiResourceAssertions[$type] = $assertion;
     }
 }

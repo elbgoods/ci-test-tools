@@ -18,7 +18,8 @@
     "pdepend/pdepend": "@stable",
     "phpmd/phpmd": "^2.8",
     "phpunit/phpunit": "^8.0",
-    "tightenco/tlint": "^3.0"
+    "tightenco/tlint": "^3.0",
+    "illuminate/support": "^6.0"
   },
   "require-dev": {
     "laravel/framework": "^6.0",
