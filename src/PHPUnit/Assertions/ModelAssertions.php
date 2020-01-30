@@ -26,6 +26,13 @@ trait ModelAssertions
         }
     }
 
+    public static function assertModelEquals(Model $expected, Model $actual, ?string $message = null): void
+    {
+        PHPUnit::assertInstanceOf(get_class($expected), $actual);
+
+        static::assertEqualsModel($expected, $actual, $message);
+    }
+
     public static function assertIsTranslatableString($actual): void
     {
         PHPUnit::assertIsArray($actual);
