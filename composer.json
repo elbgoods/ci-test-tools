@@ -18,7 +18,7 @@
     "pdepend/pdepend": "@stable",
     "phpmd/phpmd": "^2.8",
     "phpunit/phpunit": "^8.0",
-    "tightenco/tlint": "^3.0",
+    "tightenco/tlint": "^3.0.7",
     "illuminate/support": "^6.0",
     "nunomaduro/phpinsights": "^1.12"
   },
