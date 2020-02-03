@@ -3,6 +3,7 @@
 [![Packagist](https://img.shields.io/packagist/l/elbgoods/ci-test-tools?style=flat-square)](https://packagist.org/packages/elbgoods/ci-test-tools)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/elbgoods/ci-test-tools?style=flat-square)](https://packagist.org/packages/elbgoods/ci-test-tools)
 [![Packagist Version](https://img.shields.io/packagist/v/elbgoods/ci-test-tools?style=flat-square)](https://packagist.org/packages/elbgoods/ci-test-tools)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/elbgoods/ci-test-tools/run-tests?style=flat-square)](https://github.com/elbgoods/ci-test-tools/actions?query=workflow%3Arun-tests)
 
 ## Installation
 
