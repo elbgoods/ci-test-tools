@@ -6,6 +6,10 @@ use Illuminate\Foundation\Testing\Assert as PHPUnit;
 
 trait NullableTypeAssertions
 {
+    /**
+     * @param string|mixed|null $actual
+     * @param string|null $message
+     */
     public static function assertIsNullableString($actual, ?string $message = null): void
     {
         PHPUnit::assertTrue(
@@ -14,6 +18,10 @@ trait NullableTypeAssertions
         );
     }
 
+    /**
+     * @param int|mixed|null $actual
+     * @param string|null $message
+     */
     public static function assertIsNullableInt($actual, ?string $message = null): void
     {
         PHPUnit::assertTrue(
@@ -22,6 +30,10 @@ trait NullableTypeAssertions
         );
     }
 
+    /**
+     * @param float|mixed|null $actual
+     * @param string|null $message
+     */
     public static function assertIsNullableFloat($actual, ?string $message = null): void
     {
         PHPUnit::assertTrue(

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR="$(dirname "$(readlink -f "$0")")"
+vendor/bin/phpinsights analyse --config-path=${DIR}/../configs/phpinsights.php --no-interaction -v --disable-security-check --min-quality=90 --min-architecture=100 --min-style=100 "${@}"

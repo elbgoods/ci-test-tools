@@ -7,6 +7,10 @@ use Illuminate\Support\Arr;
 
 trait CommonAssertions
 {
+    /**
+     * @param array $expected
+     * @param array|mixed $actual
+     */
     public static function assertEqualsArray(array $expected, $actual): void
     {
         PHPUnit::assertIsArray($actual);

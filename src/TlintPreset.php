@@ -9,9 +9,9 @@ use Tighten\Presets\LaravelPreset;
 
 class TlintPreset extends LaravelPreset
 {
-    public function getLinters() : array
+    public function getLinters(): array
     {
-        return array_filter(parent::getLinters(), function (string $linter) {
+        return array_filter(parent::getLinters(), static function (string $linter): bool {
             return ! in_array($linter, [
                 NoInlineVarDocs::class,
                 NoParensEmptyInstantiations::class,

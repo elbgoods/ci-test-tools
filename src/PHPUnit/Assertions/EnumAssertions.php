@@ -8,6 +8,10 @@ use Spatie\Enum\Enum;
 
 trait EnumAssertions
 {
+    /**
+     * @param Enum|mixed $actual
+     * @param string|null $message
+     */
     public static function assertIsEnum($actual, ?string $message = null): void
     {
         PHPUnit::assertInstanceOf(
@@ -17,6 +21,11 @@ trait EnumAssertions
         );
     }
 
+    /**
+     * @param Enum $expected
+     * @param Enum|string|int|mixed $actual
+     * @param string|null $message
+     */
     public static function assertEqualsEnum(Enum $expected, $actual, ?string $message = null): void
     {
         PHPUnit::assertTrue(
@@ -25,6 +34,11 @@ trait EnumAssertions
         );
     }
 
+    /**
+     * @param string $expected
+     * @param string|int|mixed $actual
+     * @param string|null $message
+     */
     public static function assertIsEnumValue(string $expected, $actual, ?string $message = null): void
     {
         try {
@@ -36,6 +50,11 @@ trait EnumAssertions
         }
     }
 
+    /**
+     * @param string $expected
+     * @param string|int|mixed|null $actual
+     * @param string|null $message
+     */
     public static function assertIsNullableEnumValue(string $expected, $actual, ?string $message = null): void
     {
         PHPUnit::assertTrue(
