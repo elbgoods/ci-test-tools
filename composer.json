@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": "^7.2",
-    "friendsofphp/php-cs-fixer": "^2.16",
+    "friendsofphp/php-cs-fixer": "^2.16.1",
     "jasonmccreary/laravel-test-assertions": "^0.3",
     "pdepend/pdepend": "@stable",
     "phpmd/phpmd": "^2.8",
