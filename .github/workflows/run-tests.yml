@@ -20,8 +20,8 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
-          path: ~/.composer/cache/files
-          key: dependencies-laravel-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          path: ~/.composer/cache
+          key: dependencies-laravel-php-${{ matrix.php }}-${{ matrix.dependency-version}}-composer-${{ hashFiles('composer.json') }}
 
       - name: Install dependencies
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
