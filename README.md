@@ -83,3 +83,18 @@ vendor/bin/php-md-test
 #### Configuration
 
 If you think that a rule should be adjusted/ignored open a PR in [this repo](https://github.com/elbgoods/ci-test-tools) to discuss it.
+
+### PHP Insights
+
+* **tool:** https://github.com/nunomaduro/phpinsights
+* **config:** [configs/phpinsights.php](configs/phpinsights.php)
+
+#### Usage
+
+```bash
+vendor/bin/php-insights-test
+```
+
+#### Configuration
+
+If you think that a rule should be adjusted/ignored open a PR in [this repo](https://github.com/elbgoods/ci-test-tools) to discuss it.
