@@ -16,6 +16,7 @@ class SuppressHelper
         'SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification',
         'SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation',
         'SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification',
+        'SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint',
     ];
 
     public static function isSniffSuppressed(File $phpcsFile, int $pointer, string $suppressName): bool
