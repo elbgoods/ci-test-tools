@@ -42,6 +42,7 @@
     "bin/php-cs-fix",
     "bin/php-cs-test",
     "bin/php-md-test",
-    "bin/php-tlint-test"
+    "bin/php-tlint-test",
+    "bin/php-insights-test"
   ]
 }
