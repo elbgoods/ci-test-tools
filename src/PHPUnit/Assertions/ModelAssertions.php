@@ -46,7 +46,7 @@ trait ModelAssertions
         PHPUnit::assertIsArray($actual);
         PHPUnit::assertArrayHasKey('en', $actual);
         PHPUnit::assertIsString($actual['en']);
-        foreach ($actual as $locale => $translation) {
+        foreach ($actual as $translation) {
             NullableTypeAssertions::assertIsNullableString($translation);
         }
     }

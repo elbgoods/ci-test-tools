@@ -3,4 +3,4 @@
 set -e
 
 DIR="$(dirname "$(readlink -f "$0")")"
-vendor/bin/phpmd ./app text ${DIR}/../configs/phpmd.xml
+vendor/bin/phpmd ${1:-./app} text ${DIR}/../configs/phpmd.xml
