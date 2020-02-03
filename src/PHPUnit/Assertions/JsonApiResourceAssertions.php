@@ -34,6 +34,10 @@ trait JsonApiResourceAssertions
         }
     }
 
+    /**
+     * @param mixed $actual
+     * @param mixed ...$params Additional arguments passed to bound callback
+     */
     public function assertIsJsonApiResourceOfType(string $type, $actual, ...$params): void
     {
         if (! array_key_exists($type, $this->jsonApiResourceAssertions)) {

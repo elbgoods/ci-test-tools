@@ -7,6 +7,11 @@ use Illuminate\Foundation\Testing\Assert as PHPUnit;
 
 trait ModelAssertions
 {
+    /**
+     * @param Model $expected
+     * @param array|Model|mixed $actual
+     * @param string|null $message
+     */
     public static function assertEqualsModel(Model $expected, $actual, ?string $message = null): void
     {
         if (
@@ -33,6 +38,9 @@ trait ModelAssertions
         static::assertEqualsModel($expected, $actual, $message);
     }
 
+    /**
+     * @param array|mixed $actual
+     */
     public static function assertIsTranslatableString($actual): void
     {
         PHPUnit::assertIsArray($actual);

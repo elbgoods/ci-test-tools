@@ -19,7 +19,8 @@
     "phpmd/phpmd": "^2.8",
     "phpunit/phpunit": "^8.0",
     "tightenco/tlint": "^3.0",
-    "illuminate/support": "^6.0"
+    "illuminate/support": "^6.0",
+    "nunomaduro/phpinsights": "^1.12"
   },
   "require-dev": {
     "laravel/framework": "^6.0",
@@ -29,7 +30,13 @@
   "autoload": {
     "psr-4": {
       "Elbgoods\\CiTestTools\\": "src/"
-    }
+    },
+    "exclude-from-classmap": [
+      "vendor/slevomat/coding-standard/SlevomatCodingStandard/Helpers/SuppressHelper.php"
+    ],
+    "files": [
+      "override/SlevomatCodingStandard/Helpers/SuppressHelper.php"
+    ]
   },
   "bin": [
     "bin/php-cs-fix",
