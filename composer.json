@@ -13,12 +13,12 @@
   ],
   "require": {
     "php": "^7.2",
-    "friendsofphp/php-cs-fixer": "^2.16",
+    "friendsofphp/php-cs-fixer": "^2.16.1",
     "jasonmccreary/laravel-test-assertions": "^0.3",
     "pdepend/pdepend": "@stable",
     "phpmd/phpmd": "^2.8",
     "phpunit/phpunit": "^8.0",
-    "tightenco/tlint": "^3.0",
+    "tightenco/tlint": "^3.0.7",
     "illuminate/support": "^6.0",
     "nunomaduro/phpinsights": "^1.12"
   },
