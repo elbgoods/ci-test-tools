@@ -37,3 +37,6 @@ jobs:
 
       - name: php-insights-test
         run: bin/php-insights-test
+
+      - name: php-stan-test
+        run: bin/php-stan-test
