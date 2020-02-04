@@ -23,7 +23,8 @@
     "phpmd/phpmd": "^2.8",
     "phpunit/phpunit": "^8.0",
     "povils/phpmnd": "^2.2",
-    "tightenco/tlint": "^3.0.7"
+    "tightenco/tlint": "^3.0.7",
+    "phpstan/phpstan": "^0.12.8"
   },
   "require-dev": {
     "illuminate/database": "^6.0",
