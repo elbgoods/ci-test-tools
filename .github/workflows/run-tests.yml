@@ -40,3 +40,6 @@ jobs:
 
       - name: php-stan-test
         run: bin/php-stan-test
+
+      - name: php-mn-test
+        run: bin/php-mn-test ./src
