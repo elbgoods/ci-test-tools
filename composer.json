@@ -21,6 +21,7 @@
     "tightenco/tlint": "^3.0.7",
     "illuminate/support": "^6.0",
     "nunomaduro/phpinsights": "^1.12",
+    "povils/phpmnd": "^2.2",
     "nunomaduro/larastan": "^0.5.0",
     "orchestra/testbench": "^4.0"
   },
@@ -46,6 +47,7 @@
     "bin/php-md-test",
     "bin/php-tlint-test",
     "bin/php-insights-test",
+    "bin/php-mn-test",
     "bin/php-stan-test"
   ]
 }
