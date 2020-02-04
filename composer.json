@@ -21,7 +21,8 @@
     "tightenco/tlint": "^3.0.7",
     "illuminate/support": "^6.0",
     "nunomaduro/phpinsights": "^1.12",
-    "nunomaduro/larastan": "^0.5.0"
+    "nunomaduro/larastan": "^0.5.0",
+    "orchestra/testbench": "^4.0"
   },
   "require-dev": {
     "laravel/framework": "^6.0",
