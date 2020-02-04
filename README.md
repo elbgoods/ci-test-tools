@@ -98,3 +98,13 @@ vendor/bin/php-insights-test
 #### Configuration
 
 If you think that a rule should be adjusted/ignored open a PR in [this repo](https://github.com/elbgoods/ci-test-tools) to discuss it.
+
+### PHPMND
+
+* **tool:** https://github.com/povils/phpmnd
+
+#### Usage
+
+```bash
+vendor/bin/php-mn-test
+```

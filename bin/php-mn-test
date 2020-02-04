@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+vendor/bin/phpmnd ${1:-./app} --non-zero-exit-on-violation

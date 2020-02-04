@@ -20,7 +20,8 @@
     "phpunit/phpunit": "^8.0",
     "tightenco/tlint": "^3.0.7",
     "illuminate/support": "^6.0",
-    "nunomaduro/phpinsights": "^1.12"
+    "nunomaduro/phpinsights": "^1.12",
+    "povils/phpmnd": "^2.2"
   },
   "require-dev": {
     "laravel/framework": "^6.0",
@@ -43,6 +44,7 @@
     "bin/php-cs-test",
     "bin/php-md-test",
     "bin/php-tlint-test",
-    "bin/php-insights-test"
+    "bin/php-insights-test",
+    "bin/php-mn-test"
   ]
 }
