@@ -108,3 +108,30 @@ If you think that a rule should be adjusted/ignored open a PR in [this repo](htt
 ```bash
 vendor/bin/php-mn-test
 ```
+
+### Larastan
+
+* **tool:** https://github.com/nunomaduro/larastan
+* **config:** [configs/phpstan.neon.dist](configs/phpstan.neon.dist)
+
+#### Usage
+
+```bash
+vendor/bin/php-stan-test
+```
+
+#### Configuration
+
+You have to create a `phpstan.neon.dist` file on your project root level with the following content.
+
+```neon
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/elbgoods/ci-test-tools/configs/phpstan.neon.dist
+
+parameters:
+    paths:
+        - ./app
+        - ./config
+        - ./routes
+```
