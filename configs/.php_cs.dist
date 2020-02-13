@@ -42,5 +42,8 @@ return Config::create()
         '@PSR2' => true,
         'no_unused_imports' => true,
     ], require '.php_cs.laravel'))
+    ->setLineEnding("\n")
+    ->setIndent(str_repeat(' ', 4))
+    ->setUsingCache(false)
     ->setRiskyAllowed(true)
     ->setFinder($finder);
