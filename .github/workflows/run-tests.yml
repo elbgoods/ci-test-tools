@@ -33,7 +33,7 @@ jobs:
         run: bin/php-md-test ./src
 
       - name: php-tlint-test
-        run: bin/php-tlint-test
+        run: bin/php-tlint-test ./src
 
       - name: php-insights-test
         run: bin/php-insights-test
