@@ -11,6 +11,7 @@ use ObjectCalisthenics\Sniffs\Classes\ForbiddenPublicPropertySniff;
 use ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff;
 use ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff;
 use ObjectCalisthenics\Sniffs\Metrics\MaxNestingLevelSniff;
+use ObjectCalisthenics\Sniffs\Metrics\MethodPerClassLimitSniff;
 use ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\EmptyStatementSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff;
@@ -106,6 +107,7 @@ return [
         FunctionLengthSniff::class,
         ComposerMustBeValid::class,
         ClassTraitAndInterfaceLengthSniff::class,
+        MethodPerClassLimitSniff::class,
 
         // STYLE
         CamelCapsMethodNameSniff::class,
