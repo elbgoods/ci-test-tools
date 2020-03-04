@@ -41,6 +41,7 @@ return Config::create()
     ->setRules(array_merge(require '.php_cs.laravel', [
         '@PSR2' => true,
         'no_unused_imports' => true,
+        'phpdoc_to_comment' => false,
     ]))
     ->setLineEnding("\n")
     ->setIndent(str_repeat(' ', 4))
