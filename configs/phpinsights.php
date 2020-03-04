@@ -18,6 +18,7 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff;
 use PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff;
 use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 use SlevomatCodingStandard\Sniffs\Commenting\DocCommentSpacingSniff;
+use SlevomatCodingStandard\Sniffs\Commenting\InlineDocCommentDeclarationSniff;
 use SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowShortTernaryOperatorSniff;
@@ -97,6 +98,7 @@ return [
         DisallowArrayTypeHintSyntaxSniff::class,
         PropertyTypeHintSniff::class,
         UselessFunctionDocCommentSniff::class,
+        InlineDocCommentDeclarationSniff::class,
 
         // COMPLEXITY
         CyclomaticComplexityIsHigh::class,
