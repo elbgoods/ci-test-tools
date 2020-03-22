@@ -41,4 +41,16 @@ trait NullableTypeAssertions
             $message ?? "Failed to assert that \"{$actual}\" is type of null|float."
         );
     }
+
+    /**
+     * @param array|mixed|null $actual
+     * @param string|null $message
+     */
+    public static function assertIsNullableArray($actual, ?string $message = null): void
+    {
+        PHPUnit::assertTrue(
+            is_null($actual) || is_array($actual),
+            $message ?? "Failed to assert that \"{$actual}\" is type of null|array."
+        );
+    }
 }
