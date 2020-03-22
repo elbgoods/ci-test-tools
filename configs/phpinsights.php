@@ -24,6 +24,7 @@ use SlevomatCodingStandard\Sniffs\Commenting\InlineDocCommentDeclarationSniff;
 use SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowShortTernaryOperatorSniff;
+use SlevomatCodingStandard\Sniffs\Functions\StaticClosureSniff;
 use SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DisallowArrayTypeHintSyntaxSniff;
@@ -83,7 +84,7 @@ return [
     ],
 
     'add' => [
-
+        StaticClosureSniff::class,
     ],
 
     'remove' => [
