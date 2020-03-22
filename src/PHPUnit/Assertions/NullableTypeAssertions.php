@@ -12,9 +12,11 @@ trait NullableTypeAssertions
      */
     public static function assertIsNullableString($actual, ?string $message = null): void
     {
-        PHPUnit::assertTrue(
+        static::assertIsNullableType(
             is_null($actual) || is_string($actual),
-            $message ?? "Failed to assert that \"{$actual}\" is type of null|string."
+            'string',
+            $actual,
+            $message
         );
     }
 
@@ -24,9 +26,11 @@ trait NullableTypeAssertions
      */
     public static function assertIsNullableInt($actual, ?string $message = null): void
     {
-        PHPUnit::assertTrue(
+        static::assertIsNullableType(
             is_null($actual) || is_int($actual),
-            $message ?? "Failed to assert that \"{$actual}\" is type of null|int."
+            'int',
+            $actual,
+            $message
         );
     }
 
@@ -36,9 +40,11 @@ trait NullableTypeAssertions
      */
     public static function assertIsNullableFloat($actual, ?string $message = null): void
     {
-        PHPUnit::assertTrue(
+        static::assertIsNullableType(
             is_null($actual) || (is_numeric($actual) && (is_int($actual) || is_float($actual))),
-            $message ?? "Failed to assert that \"{$actual}\" is type of null|float."
+            'float',
+            $actual,
+            $message
         );
     }
 
@@ -48,9 +54,24 @@ trait NullableTypeAssertions
      */
     public static function assertIsNullableArray($actual, ?string $message = null): void
     {
-        PHPUnit::assertTrue(
+        static::assertIsNullableType(
             is_null($actual) || is_array($actual),
-            $message ?? "Failed to assert that \"{$actual}\" is type of null|array."
+            'array',
+            $actual,
+            $message
+        );
+    }
+
+    private static function assertIsNullableType(bool $condition, string $type, $actual, ?string $message = null): void
+    {
+        PHPUnit::assertTrue(
+            $condition,
+            $message ?? sprintf(
+                'Failed to assert that "%s" is type of null|%s.'.PHP_EOL.'%s',
+                gettype($actual),
+                $type,
+                var_export($actual, true)
+            )
         );
     }
 }
