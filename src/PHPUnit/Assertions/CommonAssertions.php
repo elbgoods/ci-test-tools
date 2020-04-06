@@ -2,8 +2,8 @@
 
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
-use PHPUnit\Framework\Assert as PHPUnit;
 use Illuminate\Support\Arr;
+use PHPUnit\Framework\Assert as PHPUnit;
 
 trait CommonAssertions
 {
