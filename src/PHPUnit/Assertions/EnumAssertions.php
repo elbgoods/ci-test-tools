@@ -3,7 +3,7 @@
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
 use Exception;
-use Illuminate\Foundation\Testing\Assert as PHPUnit;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Spatie\Enum\Enum;
 
 trait EnumAssertions

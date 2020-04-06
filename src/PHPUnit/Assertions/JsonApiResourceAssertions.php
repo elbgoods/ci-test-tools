@@ -3,10 +3,10 @@
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
 use Closure;
-use Illuminate\Foundation\Testing\Assert as PHPUnit;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use OutOfBoundsException;
+use PHPUnit\Framework\Assert as PHPUnit;
 
 trait JsonApiResourceAssertions
 {
