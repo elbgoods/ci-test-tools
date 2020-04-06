@@ -3,7 +3,7 @@
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\Assert as PHPUnit;
+use PHPUnit\Framework\Assert as PHPUnit;
 
 trait ModelAssertions
 {

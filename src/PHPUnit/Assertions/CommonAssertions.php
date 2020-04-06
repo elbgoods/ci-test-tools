@@ -2,7 +2,7 @@
 
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
-use Illuminate\Foundation\Testing\Assert as PHPUnit;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Illuminate\Support\Arr;
 
 trait CommonAssertions
