@@ -5,3 +5,5 @@ includes:
 parameters:
     paths:
         - ./src
+    ignoreErrors:
+        - '#Call to static method [a-zA-Z0-9_]+\(\) on trait [a-zA-Z\\]+#'
