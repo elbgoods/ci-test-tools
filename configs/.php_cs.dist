@@ -42,6 +42,8 @@ return Config::create()
         '@PSR2' => true,
         'no_unused_imports' => true,
         'phpdoc_to_comment' => false,
+        'phpdoc_order' => true,
+        'phpdoc_separation' => true,
     ]))
     ->setLineEnding("\n")
     ->setIndent(str_repeat(' ', 4))
