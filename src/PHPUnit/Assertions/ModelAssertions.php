@@ -10,10 +10,15 @@ trait ModelAssertions
     /**
      * @param Model $expected
      * @param array|Model|mixed $actual
+     * @param bool $considerHiddenAttributes
      * @param string|null $message
      */
-    public static function assertEqualsModel(Model $expected, $actual, ?string $message = null): void
-    {
+    public static function assertEqualsModel(
+        Model $expected,
+        $actual,
+        bool $considerHiddenAttributes = false,
+        ?string $message = null
+    ): void {
         if (
             $expected->exists
             && $actual instanceof Model
@@ -22,12 +27,16 @@ trait ModelAssertions
             PHPUnit::assertTrue($expected->is($actual));
         }
 
+        $hiddenAttributes = $expected->getHidden();
+
         foreach ($expected->getFillable() as $attribute) {
-            PHPUnit::assertEquals(
-                $expected->getAttribute($attribute),
-                data_get($actual, $attribute),
-                $message ?? "Failed to assert that attribute \"{$attribute}\" equals expected value."
-            );
+            if ($considerHiddenAttributes || ! in_array($hiddenAttributes, $attribute)) {
+                PHPUnit::assertEquals(
+                    $expected->getAttribute($attribute),
+                    data_get($actual, $attribute),
+                    $message ?? "Failed to assert that attribute \"{$attribute}\" equals expected value."
+                );
+            }
         }
     }
 
@@ -35,7 +44,7 @@ trait ModelAssertions
     {
         PHPUnit::assertInstanceOf(get_class($expected), $actual);
 
-        static::assertEqualsModel($expected, $actual, $message);
+        static::assertEqualsModel($expected, $actual, true, $message);
     }
 
     /**
