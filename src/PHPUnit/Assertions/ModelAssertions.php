@@ -3,7 +3,6 @@
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 trait ModelAssertions
@@ -23,7 +22,7 @@ trait ModelAssertions
             PHPUnit::assertTrue($expected->is($actual));
         }
 
-        foreach (Arr::except($expected->getFillable(), $expected->getHidden()) as $attribute) {
+        foreach (array_diff($expected->getFillable(), $expected->getHidden()) as $attribute) {
             PHPUnit::assertEquals(
                 $expected->getAttribute($attribute),
                 data_get($actual, $attribute),
