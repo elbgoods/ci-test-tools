@@ -22,7 +22,7 @@ trait ModelAssertions
             PHPUnit::assertTrue($expected->is($actual));
         }
 
-        foreach (arr_diff($expected->getFillable(), $expected->getHidden()) as $attribute) {
+        foreach (array_diff($expected->getFillable(), $expected->getHidden()) as $attribute) {
             PHPUnit::assertEquals(
                 $expected->getAttribute($attribute),
                 data_get($actual, $attribute),
