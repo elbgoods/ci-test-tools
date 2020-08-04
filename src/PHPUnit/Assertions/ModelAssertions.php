@@ -11,7 +11,6 @@ trait ModelAssertions
     /**
      * @param Model $expected
      * @param array|Model|mixed $actual
-     * @param bool $considerHiddenAttributes
      * @param string|null $message
      */
     public static function assertEqualsModel(Model $expected, $actual, ?string $message = null): void
