@@ -14,7 +14,8 @@ trait ModelAssertions
      * @param bool $considerHiddenAttributes
      * @param string|null $message
      */
-    public static function assertEqualsModel(Model $expected, $actual, ?string $message = null): void {
+    public static function assertEqualsModel(Model $expected, $actual, ?string $message = null): void
+    {
         if (
             $expected->exists
             && $actual instanceof Model
@@ -22,7 +23,7 @@ trait ModelAssertions
         ) {
             PHPUnit::assertTrue($expected->is($actual));
         }
-        
+
         foreach (Arr::except($expected->getFillable(), $expected->getHidden()) as $attribute) {
             PHPUnit::assertEquals(
                 $expected->getAttribute($attribute),
