@@ -63,7 +63,7 @@ trait NullableTypeAssertions
     }
 
     /**
-     * @param array|mixed|null $actual
+     * @param bool|mixed|null $actual
      * @param string|null $message
      */
     public static function assertIsNullableBool($actual, ?string $message = null): void
