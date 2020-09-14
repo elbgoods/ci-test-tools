@@ -2,6 +2,8 @@
 
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
+use Carbon\Carbon;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use PHPUnit\Framework\Assert as PHPUnit;
 
@@ -23,11 +25,20 @@ trait ModelAssertions
         }
 
         foreach (array_diff($expected->getFillable(), $expected->getHidden()) as $attribute) {
-            PHPUnit::assertEquals(
-                $expected->getAttribute($attribute),
-                data_get($actual, $attribute),
-                $message ?? "Failed to assert that attribute \"{$attribute}\" equals expected value."
-            );
+            $expectedValue = $expected->getAttribute($attribute);
+
+            if ($expectedValue instanceof DateTimeInterface) {
+                PHPUnit::assertTrue(
+                    Carbon::instance($expectedValue)->isSameAs(Carbon::ISO8601, data_get($actual, $attribute)),
+                    $message ?? "Failed to assert that attribute \"{$attribute}\" equals expected value."
+                );
+            } else {
+                PHPUnit::assertEquals(
+                    $expectedValue,
+                    data_get($actual, $attribute),
+                    $message ?? "Failed to assert that attribute \"{$attribute}\" equals expected value."
+                );
+            }
         }
     }
 
