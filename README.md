@@ -8,7 +8,7 @@
 ## Installation
 
 ```bash
-composer require --dev elbgoods/ci-test-tools
+composer require --dev elbgoods/ci-test-tools jasonmccreary/laravel-test-assertions:^0.4.1
 yarn add --dev elbgoods/ci-test-tools
 ```
 
