@@ -9,7 +9,8 @@
 
 ```bash
 composer require --dev bamarni/composer-bin-plugin:^1.4 jasonmccreary/laravel-test-assertions:^0.4.1
-composer bin ci require elbgoods/ci-test-tools
+composer bin ci require --dev elbgoods/ci-test-tools
+
 yarn add --dev elbgoods/ci-test-tools
 ```
 
