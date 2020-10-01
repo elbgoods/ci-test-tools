@@ -8,11 +8,11 @@ use Elbgoods\CiTestTools\PHPUnit\Assertions\JsonApiResourceAssertions;
 use Elbgoods\CiTestTools\PHPUnit\Assertions\ModelAssertions;
 use Elbgoods\CiTestTools\PHPUnit\Assertions\NullableTypeAssertions;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use JMac\Testing\Traits\HttpTestAssertions;
+use JMac\Testing\Traits\AdditionalAssertions;
 
 abstract class TestCase extends BaseTestCase
 {
-    use HttpTestAssertions,
+    use AdditionalAssertions,
         EnumAssertions,
         ModelAssertions,
         NullableTypeAssertions,
