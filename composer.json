@@ -24,7 +24,7 @@
     "phpstan/phpstan": "^0.12.8",
     "phpunit/phpunit": "^8.0 || ^9.0",
     "povils/phpmnd": "^2.2",
-    "tightenco/tlint": "^4.0.2"
+    "tightenco/tlint": "^5.0.5"
   },
   "require-dev": {
     "illuminate/database": "^6.0 || ^7.0",
