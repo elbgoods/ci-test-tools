@@ -17,6 +17,7 @@ trait ModelAssertions
      * @param  \Illuminate\Database\Eloquent\Model|string  $table
      * @param  array  $data
      * @param  string|null  $connection
+     *
      * @return void
      */
     public static function assertExists($table, array $data = [], ?string $connection = null): void
@@ -32,7 +33,8 @@ trait ModelAssertions
         }
 
         PHPUnit::assertThat(
-            $table, new HasInDatabase(DB::connection($connection), $data)
+            $table,
+            new HasInDatabase(DB::connection($connection), $data)
         );
     }
 
