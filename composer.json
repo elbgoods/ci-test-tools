@@ -19,7 +19,8 @@
   },
   "require-dev": {
     "illuminate/database": "^6.0 || ^7.0 || ^8.0",
-    "laravel/framework": "^6.0 || ^7.0 || ^8.0"
+    "laravel/framework": "^6.0 || ^7.0 || ^8.0",
+    "nunomaduro/phpinsights": "^1.14"
   },
   "suggest": {
     "friendsofphp/php-cs-fixer": "vendor/bin/php-cs-test",
