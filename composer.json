@@ -45,14 +45,5 @@
         "bin/php-mn-test",
         "bin/php-stan-test",
         "bin/php-tlint-test"
-    ],
-    "scripts": {
-        "post-autoload-dump": [
-            "@composer validate --strict --ansi --no-interaction --quiet",
-            "@composer normalize --indent-style=space --indent-size=4 --ansi --no-interaction --quiet",
-            "@composer thanks --ansi --no-interaction --quiet"
-        ],
-        "normalize": "echo 'composer global require ergebnis/composer-normalize'",
-        "thanks": "echo 'composer global require symfony/thanks'"
-    }
+    ]
 }
