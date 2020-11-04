@@ -1,56 +1,56 @@
 {
-  "name": "elbgoods/ci-test-tools",
-  "description": "CI Test Tools used by Elbgoods GmbH",
-  "keywords": [],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Tom Witkowski",
-      "email": "twitkowski@elbgoods.de",
-      "homepage": "https://gummibeer.de",
-      "role": "Developer"
+    "name": "elbgoods/ci-test-tools",
+    "description": "CI Test Tools used by Elbgoods GmbH",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "twitkowski@elbgoods.de",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+        "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
+        "phpunit/phpunit": "^8.0 || ^9.0"
+    },
+    "require-dev": {
+        "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+        "laravel/framework": "^6.0 || ^7.0 || ^8.0",
+        "nunomaduro/phpinsights": "^1.14"
+    },
+    "suggest": {
+        "friendsofphp/php-cs-fixer": "vendor/bin/php-cs-test",
+        "nunomaduro/larastan": "vendor/bin/php-stan-test",
+        "nunomaduro/phpinsights": "vendor/bin/php-insights-test",
+        "phpmd/phpmd": "vendor/bin/php-md-test",
+        "povils/phpmnd": "vendor/bin/php-mn-test",
+        "tightenco/tlint": "vendor/bin/php-tlint-test"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elbgoods\\CiTestTools\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "bin": [
+        "bin/php-cs-fix",
+        "bin/php-cs-test",
+        "bin/php-insights-test",
+        "bin/php-md-test",
+        "bin/php-mn-test",
+        "bin/php-stan-test",
+        "bin/php-tlint-test"
+    ],
+    "scripts": {
+        "post-autoload-dump": [
+            "@composer validate --strict --ansi --no-interaction --quiet",
+            "@composer normalize --ansi --no-interaction --quiet",
+            "@composer thanks --ansi --no-interaction --quiet"
+        ]
     }
-  ],
-  "require": {
-    "php": "^7.2 || ^8.0",
-    "illuminate/support": "^6.0 || ^7.0 || ^8.0",
-    "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
-    "phpunit/phpunit": "^8.0 || ^9.0"
-  },
-  "require-dev": {
-    "illuminate/database": "^6.0 || ^7.0 || ^8.0",
-    "laravel/framework": "^6.0 || ^7.0 || ^8.0",
-    "nunomaduro/phpinsights": "^1.14"
-  },
-  "suggest": {
-    "friendsofphp/php-cs-fixer": "vendor/bin/php-cs-test",
-    "nunomaduro/larastan": "vendor/bin/php-stan-test",
-    "nunomaduro/phpinsights": "vendor/bin/php-insights-test",
-    "phpmd/phpmd": "vendor/bin/php-md-test",
-    "povils/phpmnd": "vendor/bin/php-mn-test",
-    "tightenco/tlint": "vendor/bin/php-tlint-test"
-  },
-  "autoload": {
-    "psr-4": {
-      "Elbgoods\\CiTestTools\\": "src/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "bin": [
-    "bin/php-cs-fix",
-    "bin/php-cs-test",
-    "bin/php-insights-test",
-    "bin/php-md-test",
-    "bin/php-mn-test",
-    "bin/php-stan-test",
-    "bin/php-tlint-test"
-  ],
-  "scripts": {
-    "post-autoload-dump": [
-      "@composer validate --strict --ansi --no-interaction --quiet",
-      "@composer normalize --ansi --no-interaction --quiet",
-      "@composer thanks --ansi --no-interaction --quiet"
-    ]
-  }
 }
