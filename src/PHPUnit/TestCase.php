@@ -2,23 +2,10 @@
 
 namespace Elbgoods\CiTestTools\PHPUnit;
 
-use Elbgoods\CiTestTools\PHPUnit\Assertions\CommonAssertions;
-use Elbgoods\CiTestTools\PHPUnit\Assertions\EnumAssertions;
-use Elbgoods\CiTestTools\PHPUnit\Assertions\JsonApiResourceAssertions;
-use Elbgoods\CiTestTools\PHPUnit\Assertions\ModelAssertions;
-use Elbgoods\CiTestTools\PHPUnit\Assertions\NullableTypeAssertions;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use JMac\Testing\Traits\HttpTestAssertions;
 
 abstract class TestCase extends BaseTestCase
 {
-    use HttpTestAssertions,
-        EnumAssertions,
-        ModelAssertions,
-        NullableTypeAssertions,
-        JsonApiResourceAssertions,
-        CommonAssertions;
-
     protected function setUp(): void
     {
         parent::setUp();

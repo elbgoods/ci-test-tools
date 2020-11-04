@@ -3,39 +3,29 @@
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
 use Closure;
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use PHPUnit\Framework\Assert as PHPUnit;
 
 trait JsonApiResourceAssertions
 {
     /** @var Closure[] */
     protected $jsonApiResourceAssertions = [];
 
+    protected function setUpJsonApiResourceAssertionsTrait(): void
+    {
+        $this->registerJsonApiResourceAssertions();
+    }
+
+    abstract protected function registerJsonApiResourceAssertions(): void;
+
     protected function tearDownJsonApiResourceAssertionsTrait(): void
     {
         $this->jsonApiResourceAssertions = [];
     }
 
-    public static function assertIsJsonApiResource(array $actual, ?string $type = null, ?int $id = null): void
-    {
-        PHPUnit::assertArrayHasKey('id', $actual);
-        PHPUnit::assertIsInt($actual['id']);
-        PHPUnit::assertTrue(0 < $actual['id']);
-        if ($id !== null) {
-            PHPUnit::assertEquals($id, $actual['id']);
-        }
-
-        PHPUnit::assertArrayHasKey('type', $actual);
-        PHPUnit::assertIsString($actual['type']);
-        if ($type !== null) {
-            PHPUnit::assertEquals($type, $actual['type']);
-        }
-    }
-
     /**
-     * @param mixed $actual
+     * @param string $type
+     * @param array|mixed $actual
      * @param mixed ...$params Additional arguments passed to bound callback
      */
     public function assertIsJsonApiResourceOfType(string $type, $actual, ...$params): void
@@ -43,8 +33,6 @@ trait JsonApiResourceAssertions
         if (! array_key_exists($type, $this->jsonApiResourceAssertions)) {
             throw new OutOfBoundsException(sprintf('There is no assertion registered for type "%s".', $type));
         }
-
-        static::assertIsJsonApiResource($actual, class_exists($type) ? Str::snake(class_basename($type)) : null);
 
         call_user_func($this->jsonApiResourceAssertions[$type], $actual, ...$params);
     }

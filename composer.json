@@ -6,41 +6,33 @@
   "authors": [
     {
       "name": "Tom Witkowski",
-      "email": "dev.gummibeer@gmail.com",
+      "email": "twitkowski@elbgoods.de",
       "homepage": "https://gummibeer.de",
       "role": "Developer"
     }
   ],
   "require": {
     "php": "^7.2",
-    "friendsofphp/php-cs-fixer": "^2.16.1",
-    "illuminate/support": "^6.0 || ^7.0",
-    "jasonmccreary/laravel-test-assertions": "^0.3",
-    "nunomaduro/larastan": "^0.5.0",
-    "nunomaduro/phpinsights": "^1.14",
-    "orchestra/testbench": "^4.0 || ^5.0",
-    "pdepend/pdepend": "@stable",
-    "phpmd/phpmd": "^2.8",
-    "phpstan/phpstan": "^0.12.8",
-    "phpunit/phpunit": "^8.0 || ^9.0",
-    "povils/phpmnd": "^2.2",
-    "tightenco/tlint": "^5.0.5"
+    "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+    "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
+    "phpunit/phpunit": "^8.0 || ^9.0"
   },
   "require-dev": {
-    "illuminate/database": "^6.0 || ^7.0",
-    "laravel/framework": "^6.0 || ^7.0",
-    "spatie/enum": "^2.3"
+    "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+    "laravel/framework": "^6.0 || ^7.0 || ^8.0"
+  },
+  "suggest": {
+    "friendsofphp/php-cs-fixer": "vendor/bin/php-cs-test",
+    "nunomaduro/larastan": "vendor/bin/php-stan-test",
+    "nunomaduro/phpinsights": "vendor/bin/php-insights-test",
+    "phpmd/phpmd": "vendor/bin/php-md-test",
+    "povils/phpmnd": "vendor/bin/php-mn-test",
+    "tightenco/tlint": "vendor/bin/php-tlint-test"
   },
   "autoload": {
     "psr-4": {
       "Elbgoods\\CiTestTools\\": "src/"
-    },
-    "files": [
-      "override/SlevomatCodingStandard/Helpers/SuppressHelper.php"
-    ],
-    "exclude-from-classmap": [
-      "vendor/slevomat/coding-standard/SlevomatCodingStandard/Helpers/SuppressHelper.php"
-    ]
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
