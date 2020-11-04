@@ -10,7 +10,7 @@ jobs:
       matrix:
         php: [7.4, 7.3, 7.2]
 
-    name: P${{ matrix.php }}
+    name: PHP v${{ matrix.php }}
 
     steps:
       - name: Setup PHP
