@@ -9,9 +9,8 @@ jobs:
       fail-fast: true
       matrix:
         php: [7.4, 7.3, 7.2]
-        dependency-version: [prefer-lowest, prefer-stable]
 
-    name: P${{ matrix.php }} - ${{ matrix.dependency-version }}
+    name: P${{ matrix.php }}
 
     steps:
       - name: Setup PHP
@@ -29,14 +28,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache
-          key: dependencies-laravel-php-${{ matrix.php }}-${{ matrix.dependency-version}}-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-laravel-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
           restore-keys: |
-            dependencies-laravel-php-${{ matrix.php }}-${{ matrix.dependency-version}}-composer-
-            dependencies-laravel-php-${{ matrix.php }}-
+            dependencies-laravel-php-${{ matrix.php }}-composer-
             dependencies-laravel-php-
 
       - name: Install dependencies
-        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+        run: composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
 
       - run: bin/php-cs-test
       - run: bin/php-mn-test ./src
