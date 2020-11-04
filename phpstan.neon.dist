@@ -1,0 +1,7 @@
+includes:
+    - ./vendor-bin/php-stan/vendor/nunomaduro/larastan/extension.neon
+    - ./configs/phpstan.neon.dist
+
+parameters:
+    paths:
+        - ./src

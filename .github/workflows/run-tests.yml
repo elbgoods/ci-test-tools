@@ -38,14 +38,9 @@ jobs:
       - name: Install dependencies
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
-      - name: php-cs-test
-        run: bin/php-cs-test
-
-      - name: php-md-test
-        run: bin/php-md-test ./src
-
-      - name: php-insights-test
-        run: bin/php-insights-test
-
-      - name: php-mn-test
-        run: bin/php-mn-test ./src
+      - run: bin/php-cs-test
+      - run: bin/php-mn-test ./src
+      - run: bin/php-md-test ./src
+      - run: bin/php-tlint-test ./src
+      - run: bin/php-insights-test
+      - run: bin/php-stan-test

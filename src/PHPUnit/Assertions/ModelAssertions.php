@@ -2,8 +2,6 @@
 
 namespace Elbgoods\CiTestTools\PHPUnit\Assertions;
 
-use Carbon\Carbon;
-use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use PHPUnit\Framework\Assert as PHPUnit;
 

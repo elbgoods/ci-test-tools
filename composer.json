@@ -20,8 +20,7 @@
     "require-dev": {
         "illuminate/database": "^6.0 || ^7.0 || ^8.0",
         "laravel/framework": "^6.0 || ^7.0 || ^8.0",
-        "nunomaduro/phpinsights": "^1.14",
-        "friendsofphp/php-cs-fixer": "^2.16.1"
+        "bamarni/composer-bin-plugin": "^1.4"
     },
     "suggest": {
         "friendsofphp/php-cs-fixer": "vendor/bin/php-cs-test",
@@ -46,5 +45,22 @@
         "bin/php-mn-test",
         "bin/php-stan-test",
         "bin/php-tlint-test"
-    ]
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "@composer bin all install --ansi --no-interaction --quiet"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi --no-interaction --quiet"
+        ],
+        "bin": "echo 'composer install --dev'",
+        "test": [
+            "bin/php-cs-test",
+            "bin/php-mn-test ./src",
+            "bin/php-md-test ./src",
+            "bin/php-tlint-test ./src",
+            "bin/php-insights-test",
+            "bin/php-stan-test"
+        ]
+    }
 }

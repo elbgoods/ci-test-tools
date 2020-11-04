@@ -152,7 +152,7 @@ You have to create a `phpstan.neon.dist` file on your project root level with th
 ```neon
 includes:
     - ./vendor-bin/php-stan/vendor/nunomaduro/larastan/extension.neon
-    - ./vendor-bin/php-stan/vendor/elbgoods/ci-test-tools/configs/phpstan.neon.dist
+    - ./vendor/elbgoods/ci-test-tools/configs/phpstan.neon.dist
 
 parameters:
     paths:
