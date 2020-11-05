@@ -6,11 +6,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [7.4, 7.3]
+        php: [ 7.4, 7.3 ]
+        laravel: [ 8.*, 7.*, 6.* ]
 
-    name: PHP v${{ matrix.php }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
     steps:
       - name: Setup PHP
@@ -34,7 +35,9 @@ jobs:
             dependencies-laravel-php-
 
       - name: Install dependencies
-        run: composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
+        run: |
+          composer require --dev "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+          composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
 
       - run: bin/php-cs-test
       - run: bin/php-mn-test ./src
