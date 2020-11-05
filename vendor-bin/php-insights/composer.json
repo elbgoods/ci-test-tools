@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "nunomaduro/phpinsights": "^1.14"
+    },
+    "autoload-dev": {
+        "files": [
+            "../../override/SlevomatCodingStandard/Helpers/SuppressHelper.php"
+        ],
+        "exclude-from-classmap": [
+            "vendor/slevomat/coding-standard/SlevomatCodingStandard/Helpers/SuppressHelper.php"
+        ]
+    }
+}

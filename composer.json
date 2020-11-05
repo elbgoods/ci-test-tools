@@ -1,56 +1,65 @@
 {
-  "name": "elbgoods/ci-test-tools",
-  "description": "CI Test Tools used by Elbgoods GmbH",
-  "keywords": [],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Tom Witkowski",
-      "email": "dev.gummibeer@gmail.com",
-      "homepage": "https://gummibeer.de",
-      "role": "Developer"
-    }
-  ],
-  "require": {
-    "php": "^7.2",
-    "friendsofphp/php-cs-fixer": "^2.16.1",
-    "illuminate/support": "^6.0 || ^7.0",
-    "jasonmccreary/laravel-test-assertions": "^0.3",
-    "nunomaduro/larastan": "^0.5.0",
-    "nunomaduro/phpinsights": "^1.14",
-    "orchestra/testbench": "^4.0 || ^5.0",
-    "pdepend/pdepend": "@stable",
-    "phpmd/phpmd": "^2.8",
-    "phpstan/phpstan": "^0.12.8",
-    "phpunit/phpunit": "^8.0 || ^9.0",
-    "povils/phpmnd": "^2.2",
-    "tightenco/tlint": "^5.0.5"
-  },
-  "require-dev": {
-    "illuminate/database": "^6.0 || ^7.0",
-    "laravel/framework": "^6.0 || ^7.0",
-    "spatie/enum": "^2.3"
-  },
-  "autoload": {
-    "psr-4": {
-      "Elbgoods\\CiTestTools\\": "src/"
-    },
-    "files": [
-      "override/SlevomatCodingStandard/Helpers/SuppressHelper.php"
+    "name": "elbgoods/ci-test-tools",
+    "description": "CI Test Tools used by Elbgoods GmbH",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "twitkowski@elbgoods.de",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
     ],
-    "exclude-from-classmap": [
-      "vendor/slevomat/coding-standard/SlevomatCodingStandard/Helpers/SuppressHelper.php"
-    ]
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "bin": [
-    "bin/php-cs-fix",
-    "bin/php-cs-test",
-    "bin/php-insights-test",
-    "bin/php-md-test",
-    "bin/php-mn-test",
-    "bin/php-stan-test",
-    "bin/php-tlint-test"
-  ]
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "illuminate/database": "^7.0 || ^8.0",
+        "illuminate/support": "^7.0 || ^8.0",
+        "illuminate/testing": "^7.0 || ^8.0",
+        "phpunit/phpunit": "^9.3"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4"
+    },
+    "suggest": {
+        "friendsofphp/php-cs-fixer": "vendor/bin/php-cs-test",
+        "nunomaduro/larastan": "vendor/bin/php-stan-test",
+        "nunomaduro/phpinsights": "vendor/bin/php-insights-test",
+        "phpmd/phpmd": "vendor/bin/php-md-test",
+        "povils/phpmnd": "vendor/bin/php-mn-test",
+        "tightenco/tlint": "vendor/bin/php-tlint-test"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elbgoods\\CiTestTools\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "bin": [
+        "bin/php-cs-fix",
+        "bin/php-cs-test",
+        "bin/php-insights-test",
+        "bin/php-md-test",
+        "bin/php-mn-test",
+        "bin/php-stan-test",
+        "bin/php-tlint-test"
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "@composer bin all install --ansi --no-interaction --quiet"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi --no-interaction --quiet"
+        ],
+        "bin": "echo 'composer install --dev'",
+        "test": [
+            "bin/php-cs-test",
+            "bin/php-mn-test ./src",
+            "bin/php-md-test ./src",
+            "bin/php-tlint-test ./src",
+            "bin/php-insights-test",
+            "bin/php-stan-test"
+        ]
+    }
 }

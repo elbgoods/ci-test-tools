@@ -1,9 +1,7 @@
 includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor-bin/php-stan/vendor/nunomaduro/larastan/extension.neon
     - ./configs/phpstan.neon.dist
 
 parameters:
     paths:
         - ./src
-    ignoreErrors:
-        - '#Call to static method [a-zA-Z0-9_]+\(\) on trait [a-zA-Z\\]+#'

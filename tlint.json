@@ -1,3 +1,7 @@
 {
-    "preset": "\\Elbgoods\\CiTestTools\\TlintPreset"
+    "preset": "laravel",
+    "disabled": [
+        "NoInlineVarDocs",
+        "NoParensEmptyInstantiations"
+    ]
 }

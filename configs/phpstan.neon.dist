@@ -1,6 +1,3 @@
 parameters:
     level: 5
     checkMissingIterableValueType: false
-    ignoreErrors:
-        - '#Unsafe usage of new static#'
-        - '#PHPDoc tag @var for variable \$[a-zA-Z0-9]+ has invalid type .+#'

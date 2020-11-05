@@ -8,15 +8,7 @@
 ## Installation
 
 ```bash
-composer require --dev bamarni/composer-bin-plugin:^1.4 jasonmccreary/laravel-test-assertions:^0.4.1
-composer bin ci require --dev elbgoods/ci-test-tools
-
-yarn add --dev elbgoods/ci-test-tools
-```
-
-If you experience a `PHP Fatal error: Allowed memory size` error, fix your setup or use:
-```bash
-COMPOSER_MEMORY_LIMIT=-1 composer require --dev elbgoods/ci-test-tools
+composer require --dev bamarni/composer-bin-plugin elbgoods/ci-test-tools
 ```
 
 ## PHP
@@ -25,6 +17,12 @@ COMPOSER_MEMORY_LIMIT=-1 composer require --dev elbgoods/ci-test-tools
 
 * **tool:** https://github.com/FriendsOfPHP/PHP-CS-Fixer
 * **config:** [configs/.php_cs.dist](configs/.php_cs.dist)
+
+#### Installation
+
+```bash
+composer bin php-cs require --dev friendsofphp/php-cs-fixer
+```
 
 #### Usage
 
@@ -53,7 +51,12 @@ If you want to adjust the default configuration you can use your `composer.json[
 ### TLint
 
 * **tool:** https://github.com/tightenco/tlint
-* **config:** [src/TlintPreset.php](src/TlintPreset.php)
+
+#### Installation
+
+```bash
+composer bin php-tlint require --dev tightenco/tlint
+```
 
 #### Usage
 
@@ -67,7 +70,11 @@ You have to create a `tlint.json` file on your project root level with the follo
 
 ```json
 {
-    "preset": "\\Elbgoods\\CiTestTools\\TlintPreset"
+    "preset": "laravel",
+    "disabled": [
+        "NoInlineVarDocs",
+        "NoParensEmptyInstantiations"
+    ]
 }
 ```
 
@@ -76,20 +83,28 @@ You have to create a `tlint.json` file on your project root level with the follo
 * **tool:** https://github.com/phpmd/phpmd
 * **config:** [configs/phpmd.xml](configs/phpmd.xml)
 
+#### Installation
+
+```bash
+composer bin php-md require --dev phpmd/phpmd
+```
+
 #### Usage
 
 ```bash
 vendor/bin/php-md-test
 ```
 
-#### Configuration
-
-If you think that a rule should be adjusted/ignored open a PR in [this repo](https://github.com/elbgoods/ci-test-tools) to discuss it.
-
 ### PHP Insights
 
 * **tool:** https://github.com/nunomaduro/phpinsights
 * **config:** [configs/phpinsights.php](configs/phpinsights.php)
+
+#### Installation
+
+```bash
+composer bin php-insights require --dev nunomaduro/phpinsights
+```
 
 #### Usage
 
@@ -97,13 +112,15 @@ If you think that a rule should be adjusted/ignored open a PR in [this repo](htt
 vendor/bin/php-insights-test
 ```
 
-#### Configuration
-
-If you think that a rule should be adjusted/ignored open a PR in [this repo](https://github.com/elbgoods/ci-test-tools) to discuss it.
-
 ### PHPMND
 
 * **tool:** https://github.com/povils/phpmnd
+
+#### Installation
+
+```bash
+composer bin php-mn require --dev povils/phpmnd
+```
 
 #### Usage
 
@@ -115,6 +132,12 @@ vendor/bin/php-mn-test
 
 * **tool:** https://github.com/nunomaduro/larastan
 * **config:** [configs/phpstan.neon.dist](configs/phpstan.neon.dist)
+
+#### Installation
+
+```bash
+composer bin php-stan require --dev nunomaduro/larastan
+```
 
 #### Usage
 
@@ -128,7 +151,7 @@ You have to create a `phpstan.neon.dist` file on your project root level with th
 
 ```neon
 includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor-bin/php-stan/vendor/nunomaduro/larastan/extension.neon
     - ./vendor/elbgoods/ci-test-tools/configs/phpstan.neon.dist
 
 parameters:

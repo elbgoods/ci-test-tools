@@ -6,40 +6,42 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [7.4, 7.3, 7.2]
-        dependency-version: [prefer-lowest, prefer-stable]
+        php: [ 7.4, 7.3 ]
+        laravel: [ 8.*, 7.* ]
 
-    name: P${{ matrix.php }} - ${{ matrix.dependency-version }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
     steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, mysql, mysqli, pdo_mysql, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          coverage: none
+          tools: composer:v2
+
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.composer/cache
-          key: dependencies-laravel-php-${{ matrix.php }}-${{ matrix.dependency-version}}-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-laravel-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            dependencies-laravel-php-${{ matrix.php }}-composer-
+            dependencies-laravel-php-
 
       - name: Install dependencies
-        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+        run: |
+          composer require --dev "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+          composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
 
-      - name: php-cs-test
-        run: bin/php-cs-test
-
-      - name: php-md-test
-        run: bin/php-md-test ./src
-
-      - name: php-tlint-test
-        run: bin/php-tlint-test ./src
-
-      - name: php-insights-test
-        run: bin/php-insights-test
-
-      - name: php-stan-test
-        run: bin/php-stan-test
-
-      - name: php-mn-test
-        run: bin/php-mn-test ./src
+      - run: bin/php-cs-test
+      - run: bin/php-mn-test ./src
+      - run: bin/php-md-test ./src
+      - run: bin/php-tlint-test ./src
+      - run: bin/php-insights-test
+      - run: bin/php-stan-test
