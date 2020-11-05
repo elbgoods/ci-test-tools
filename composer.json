@@ -13,9 +13,9 @@
     ],
     "require": {
         "php": "^7.3 || ^8.0",
-        "illuminate/support": " ^7.0 || ^8.0",
-        "illuminate/testing": "^7.0 || ^8.0",
         "illuminate/database": "^7.0 || ^8.0",
+        "illuminate/support": "^7.0 || ^8.0",
+        "illuminate/testing": "^7.0 || ^8.0",
         "phpunit/phpunit": "^9.3"
     },
     "require-dev": {
