@@ -1,5 +1,6 @@
 {
     "require-dev": {
-        "nunomaduro/larastan": "^0.6.9"
+        "nunomaduro/larastan": "^0.6.9",
+        "orchestra/testbench": "^4.0 || ^5.0"
     }
 }
